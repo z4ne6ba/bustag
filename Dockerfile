@@ -22,6 +22,8 @@ RUN mkdir /install
 
 RUN pip download --destination-directory /install -r /app/requirements.txt -i https://pypi.douban.com/simple
 
+RUN pip wheel --wheel-dir /install -r /app/requirements.txt
+
 FROM python:3.7.4-slim  as release
 
 COPY ./docker/sources.list .
